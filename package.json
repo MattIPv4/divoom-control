@@ -1,0 +1,16 @@
+{
+  "name": "divoom-control",
+  "version": "1.0.0",
+  "description": "",
+  "main": "devices.js",
+  "scripts": {
+    "get-devices": "node devices.js",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluetooth-serial-port": "^2.2.7",
+    "node-divoom-timebox-evo": "^0.3.0"
+  }
+}
