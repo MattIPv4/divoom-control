@@ -63,8 +63,14 @@ module.exports.connect = async address => {
 /**
  * Get the name and address of each paired Bluetooth device.
  *
- * @return {Promise<Array{String}>}
+ * @return {Promise<String[]>}
  */
 module.exports.getDevices = () => new Promise(resolve => {
-    btSerial.listPairedDevices(data => resolve(data.map(device => `${device.name}: ${device.address}`)));
+    const format = device => `${device.name}: ${device.address.split('-').join(':')}`;
+    btSerial.listPairedDevices(data => resolve(data.map(device => format(device))));
 });
+
+/**
+ * Close the connection to the Bluetooth device.
+ */
+module.exports.close = () => btSerial.close();

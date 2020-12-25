@@ -2,15 +2,15 @@
   "name": "divoom-control",
   "version": "1.0.0",
   "description": "",
-  "main": "devices.js",
-  "scripts": {
-    "get-devices": "node devices.js",
-    "start": "node index.js"
+  "main": "src/divoom.js",
+  "bin": {
+    "divoom-control": "src/cli.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Matt (IPv4) Cowley",
+  "license": "Apache-2.0",
   "dependencies": {
     "bluetooth-serial-port": "^2.2.7",
-    "node-divoom-timebox-evo": "^0.3.0"
+    "node-divoom-timebox-evo": "^0.3.0",
+    "yargs": "^16.2.0"
   }
 }
