@@ -66,9 +66,9 @@ module.exports.setDateTime = async date => {
 
 
 /**
- * Display Image on the Divoom device
+ * Display an image on the Divoom device.
  *
- * @param {String} [filename] Filename to read the image from (absolute path)
+ * @param {String} filename Filename to read the image from (absolute path)
  *
  * @return {Promise<void>}
  */
