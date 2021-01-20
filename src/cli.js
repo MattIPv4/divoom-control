@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 const yargs = require('yargs/yargs');
+const fs = require('fs');
 const { hideBin } = require('yargs/helpers');
 const { getDevices, connect, close } = require('./bluetooth');
 const { displayColor, displayCustom, setBrightness, displayDateTime, setDateTime, displayImage } = require('./divoom');
-const fs = require('fs');
 
 // Define all the CLI commands
 const commands = yargs => yargs

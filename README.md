@@ -16,8 +16,9 @@ Commands:
 ```
 
 ## Setup (Linux)
-
-    sudo apt install nodejs npm
-    sudo apt install build-essential libbluetooth-dev
-    npm ci
-    node src/cli.js display-color -a XX:XX:XX:XX:XX:XX -c ff0000 -b 100
+```text
+sudo apt install nodejs npm
+sudo apt install build-essential libbluetooth-dev
+npm ci
+node src/cli.js display-color -a XX:XX:XX:XX:XX:XX -c ff0000 -b 100
+```
