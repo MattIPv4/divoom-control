@@ -63,3 +63,19 @@ module.exports.setDateTime = async date => {
     for (const buffer of d.messages.asBinaryBuffer())
         await write(buffer);
 };
+
+
+/**
+ * Display Image on the Divoom device
+ *
+ * @param {String} [filename] Filename to read the image from (absolute path)
+ *
+ * @return {Promise<void>}
+ */
+module.exports.displayImage = async (filename) => {
+    const d = new Divoom.DisplayAnimation();
+    const messages = await d.read(filename);
+
+    for (const buffer of messages.asBinaryBuffer())
+        await write(buffer);
+};
