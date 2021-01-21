@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 const yargs = require('yargs/yargs');
+const fs = require('fs');
 const { hideBin } = require('yargs/helpers');
 const { getDevices, connect, close } = require('./bluetooth');
-const { displayColor, displayCustom, setBrightness, displayDateTime, setDateTime } = require('./divoom');
+const { displayColor, displayCustom, setBrightness, displayDateTime, setDateTime, displayImage } = require('./divoom');
 
 // Define all the CLI commands
 const commands = yargs => yargs
@@ -50,6 +51,21 @@ const commands = yargs => yargs
     }, async argv => {
         await connect(argv.address);
         await displayDateTime();
+        close();
+    })
+    .command('display-image', 'Display an image on the Divoom device.', yargs => {
+        yargs.option('address', {
+            alias: 'a',
+            type: 'string',
+            description: 'The Bluetooth address of the Divoom device.'
+        }).option('filename', {
+            alias: 'f',
+            type: 'string',
+            description: 'The file to display. GIF, PNG, BMP or JPG.'
+        }).demandOption(['a', 'f']);
+    }, async argv => {
+        await connect(argv.address);
+        await displayImage(fs.realpathSync(argv.filename));
         close();
     })
     .command('set-brightness', 'Set the global brightness of the Divoom device.', yargs => {
