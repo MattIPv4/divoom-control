@@ -22,3 +22,11 @@ sudo apt install build-essential libbluetooth-dev
 npm ci
 node src/cli.js display-color -a XX:XX:XX:XX:XX:XX -c ff0000 -b 100
 ```
+
+
+## Build & run docker image
+```text
+docker build -t local/divoom-control .
+docker run --rm -t -i --name divoom-control local/divoom-control --help
+docker run --rm -t -i --name divoom-control local/divoom-control get-devices
+```
